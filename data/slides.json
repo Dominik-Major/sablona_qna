@@ -1,0 +1,14 @@
+[
+  {
+    "image": "img/banner1.jpg",
+    "title": "Prvý nadpis"
+  },
+  {
+    "image": "img/banner2.jpg",
+    "title": "Druhý nadpis"
+  },
+  {
+    "image": "img/banner3.jpg",
+    "title": "Tretí nadpis"
+  }
+]

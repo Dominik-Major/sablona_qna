@@ -36,3 +36,26 @@ function generatePortfolio($dir) {
 
     echo '</section>';
 }
+
+function renderSlides($jsonPath = "data/slides.json") {
+    if (!file_exists($jsonPath)) {
+        echo "<p>Slides JSON not found.</p>";
+        return;
+    }
+
+    $slides = json_decode(file_get_contents($jsonPath), true);
+
+    if (!$slides) {
+        echo "<p>No slides available.</p>";
+        return;
+    }
+
+    foreach ($slides as $slide): ?>
+        <div class="slide fade">
+            <img src="<?= htmlspecialchars($slide["image"]) ?>">
+            <div class="slide-text">
+                <?= htmlspecialchars($slide["title"]) ?>
+            </div>
+        </div>
+    <?php endforeach;
+}
