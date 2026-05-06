@@ -28,14 +28,22 @@
       </div>
     </section>
       <section class="container">
-          <?php include "otazky.php"; ?>
-          <?php for ($i = 0; $i < count($otazky); $i++) { ?>
+          <?php
+            require_once "classes/Qna.php";
+            use App\Qna;
+
+            $qna = new Qna();
+            $data = $qna->getAll();
+          ?>
+          <?php foreach ($data as $row) { ?>
             <div class="accordion">
-              <div class="question"><?php echo $otazky[$i]; ?>
-            </div>  
-              <div class="answer"><?php echo $odpovede[$i]; ?>
-            </div>     
-          </div>    
+              <div class="question">
+                <?php echo htmlspecialchars($row['otazka']); ?>
+              </div>  
+              <div class="answer">
+                <?php echo htmlspecialchars($row['odpoved']); ?>
+              </div>     
+            </div>    
           <?php } ?>
         </section>
 
