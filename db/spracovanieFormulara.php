@@ -1,17 +1,9 @@
 <?php
-$host = "localhost";
-$dbname = "formular_sj";
-$port = 3307;
-$username = "root";
-$password = "";
+require_once __DIR__ . "/../classes/database.php";
+use App\Database;
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;port=$port", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
-} catch (PDOException $e) {
-    die("Chyba pripojenia: " . $e->getMessage());
-}
+$db = new Database();
+$conn = $db->connect();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
